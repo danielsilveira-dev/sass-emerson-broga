@@ -1,0 +1,14 @@
+@import "./variables";
+@import "./reset";
+
+body {
+  background: blueviolet;
+  color: #fff;
+  h1 {
+    color: $primary-color;
+    font-weight: map-get($font-weight, bold);
+  }
+  a {
+    color: $primary-color;
+  }
+}
