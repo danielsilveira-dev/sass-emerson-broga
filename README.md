@@ -2,6 +2,7 @@
 
 <a href="#variaveis">Variáveis</a> |
 <a href="#maps">Maps</a> |
+<a href="#fucoes">Funções</a> |
 
 
  - <a href="https://sass-lang.com/">Site</a>
@@ -56,4 +57,48 @@ No arquivo principal do nosso  Sass `main.scss`, importamos nosso novo arquivo S
 
 ```scss
 @import "./variables";
+```
+<h2 id="funcoes">Funções</h2>
+
+```scss
+@function weight($key) { // Na função posso passar o que quero fazer com ela, no caso weight($atributodopeso)
+  @return map-get($font-weight, $key);
+}
+
+h1 {
+    color: $primary-color;
+    font-weight: weight(bold); // Depois só colocar o valor do weight que você quer escolher pra usar a função
+}
+```
+
+<h2>Mixins</h2>
+Trecho de código onde você vai querer repetir dentro da estilização
+
+```scss
+@function weight($key) {
+  @return map-get($font-weight, $key);
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: blueviolet;
+  color: #fff;
+  .container {
+    @include flexCenter(); // Quando incluímos um mixin, precisamos incluir o mesmo conforme exemplo
+    h1 {
+      color: $primary-color;
+      font-weight: weight(bold);
+    }
+    p {
+      color: $primary-color;
+    }
+    a {
+      color: $primary-color;
+    }
+  }
+}
 ```

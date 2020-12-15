@@ -1,14 +1,32 @@
 @import "./variables";
 @import "./reset";
 
+@function weight($key) {
+  @return map-get($font-weight, $key);
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
 body {
   background: blueviolet;
   color: #fff;
-  h1 {
-    color: $primary-color;
-    font-weight: map-get($font-weight, bold);
-  }
-  a {
-    color: $primary-color;
+  .container {
+    @include flexCenter(column);
+    /* flex-direction: column; // Podemos ingluir alguns atributos assim também!*/
+    h1 {
+      color: $primary-color;
+      font-weight: weight(bold);
+    }
+    p {
+      color: $primary-color;
+    }
+    a {
+      color: $primary-color;
+    }
   }
 }
